@@ -222,7 +222,7 @@
         />
       </div>
     </div>
-    <div class="mt-macro">
+    <div class="mt-4">
       <Textarea
         label="Optionally, tell us more about your interest in Gitpod. What challenges
         are you looking to solve? How can we help?"
@@ -238,6 +238,11 @@
       class="btn-conversion title"
       disabled={isFormDirty && !isFormValid}>Install Now</button
     >
+    {#if isFormDirty && !isFormValid}
+      <legend class="text-xs text-error block mt-1 mb-2">
+        Please fill out all required fields above
+      </legend>
+    {/if}
   </form>
 
   <div class="mt-6">

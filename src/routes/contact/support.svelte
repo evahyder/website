@@ -282,6 +282,11 @@
               class="btn"
               disabled={isFormDirty && !isFormValid}>Send message</button
             >
+            {#if isFormDirty && !isFormValid}
+              <legend class="text-xs text-error block mt-1 mb-2">
+                Please fill out all required fields above
+              </legend>
+            {/if}
           </li>
         </ul>
         {#if isEmailSent}
