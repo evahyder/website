@@ -1,4 +1,10 @@
-<script>
+<script context="module" lang="ts">
+  export const key = Symbol();
+</script>
+
+<script lang="ts">
+  import { getContext } from "svelte";
+  import type { BannerData } from "$lib/types/banner.type";
   import Banner from "./base.svelte";
 
   /**
@@ -7,8 +13,7 @@
    * For simplicity, the announcement `storageKey` is the date the announcement
    * was made, in the `yyyy-mm-dd` format.
    */
-  const startDate = new Date("2022-02-09");
-  const endDate = new Date("7:00 AM, 24 February, 2022");
+  const bannerData: BannerData = getContext(key);
 </script>
 
 <div
@@ -16,11 +21,10 @@
   data-analytics={`{"position":"announcement"}`}
 >
   <Banner
-    storageKey="announcement-{`${startDate}${endDate}`}"
+    storageKey="announcement-{`${bannerData.startDate}${bannerData.endDate}`}"
+    display={bannerData.display}
     let:closeBanner
     class="announcement-banner"
-    {startDate}
-    {endDate}
   >
     <span class="flex-1 text-lg text-right">🤝 </span>
     <p class="flex-2 px-4 md:px-2">
