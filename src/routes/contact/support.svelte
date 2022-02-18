@@ -14,6 +14,7 @@
   import Textarea from "$lib/components/ui-library/textarea";
   import Input from "$lib/components/ui-library/input";
   import Checkbox from "$lib/components/ui-library/checkbox";
+  import Button from "$lib/components/ui-library/button";
 
   const studentUnlimitedSubject = "Educational Discount Verification";
 
@@ -91,7 +92,7 @@
     });
 
     const email: Email = {
-      from: {
+      replyTo: {
         email: formData.email.value,
         name: formData.name.value,
       },
@@ -276,12 +277,15 @@
             />
           </li>
           <li>
-            <button
+            <Button
+              variant="cta"
+              size="medium"
               on:click={handleClick}
               type="submit"
               class="btn"
-              disabled={isFormDirty && !isFormValid}>Send message</button
-            >
+              disabled={isFormDirty && !isFormValid}
+              >Send message
+            </Button>
             {#if isFormDirty && !isFormValid}
               <legend class="text-xs text-error block mt-1 mb-2">
                 Please fill out all required fields above

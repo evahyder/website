@@ -14,6 +14,7 @@
   import Input from "$lib/components/ui-library/input";
   import Checkbox from "$lib/components/ui-library/checkbox";
   import Select from "$lib/components/ui-library/select";
+  import Button from "$lib/components/ui-library/button";
 
   const selfHostingSubject = "Self-hosting";
   const otherSubject = "Other";
@@ -118,7 +119,7 @@
 
     const email: Email = {
       toType: "sales",
-      from: {
+      replyTo: {
         email: formData.workEmail.value,
         name: formData.name.value,
       },
@@ -353,11 +354,12 @@
             />
           </li>
           <li>
-            <button
-              type="submit"
-              class="btn"
+            <Button
+              variant="cta"
+              size="medium"
               on:click={handleClick}
-              disabled={isFormDirty && !isFormValid}>Send message</button
+              type="submit"
+              disabled={isFormDirty && !isFormValid}>Send message</Button
             >
             {#if isFormDirty && !isFormValid}
               <legend class="text-xs text-error block mt-1 mb-2">

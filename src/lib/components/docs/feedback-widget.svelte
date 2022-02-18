@@ -3,6 +3,7 @@
   import { page } from "$app/stores";
   import { trackEvent } from "../segment.svelte";
   import Textarea from "$lib/components/ui-library/textarea";
+  import Button from "$lib/components/ui-library/button";
 
   let selectedEmotion: number;
   let note = "";
@@ -96,13 +97,15 @@
               class="mb-0"
             />
             <div>
-              <span
-                ><button
-                  type="submit"
+              <span>
+                <Button
+                  variant="primary"
+                  size="medium"
                   disabled={isSubmittedOnce}
-                  class="btn-primary mt-micro"><span>Send</span></button
-                ></span
-              >
+                  class="mt-micro"
+                  type="submit"><span>Send</span></Button
+                >
+              </span>
             </div>
           </div>
         {/if}

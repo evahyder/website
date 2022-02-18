@@ -9,6 +9,7 @@
   import Textarea from "$lib/components/ui-library/textarea";
   import Input from "$lib/components/ui-library/input";
   import Select from "$lib/components/ui-library/select";
+  import Button from "$lib/components/ui-library/button";
 
   import { countryList } from "$lib/contents/license-key";
   import type { Email } from "../functions/submit-form";
@@ -64,7 +65,7 @@
 
     const email: Email = {
       toType: "sales",
-      from: {
+      replyTo: {
         email: formData.email.value,
         name: `${formData.firstName.value} ${formData.lastName.value}`,
       },
@@ -232,17 +233,20 @@
         bind:element={formData.message.el}
         name="message"
       />
+      <div class="mt-4">
+        <Button
+          variant="primary"
+          size="large"
+          type="submit"
+          disabled={isFormDirty && !isFormValid}>Install Now</Button
+        >
+      </div>
+      {#if isFormDirty && !isFormValid}
+        <legend class="text-xs text-error block mt-1 mb-2">
+          Please fill out all required fields above
+        </legend>
+      {/if}
     </div>
-    <button
-      type="submit"
-      class="btn-conversion title"
-      disabled={isFormDirty && !isFormValid}>Install Now</button
-    >
-    {#if isFormDirty && !isFormValid}
-      <legend class="text-xs text-error block mt-1 mb-2">
-        Please fill out all required fields above
-      </legend>
-    {/if}
   </form>
 
   <div class="mt-6">

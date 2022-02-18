@@ -7,6 +7,7 @@
   import OpenGraph from "$lib/components/open-graph.svelte";
   import Header from "$lib/components/header.svelte";
   import Textarea from "$lib/components/ui-library/textarea";
+  import Button from "$lib/components/ui-library/button";
 
   const extensionUrls = {
     chrome:
@@ -180,10 +181,12 @@
         />
       </li>
       <li>
-        <button
-          class="btn-cta mt-x-small"
+        <Button
+          variant="cta"
+          size="large"
+          class="mt-x-small"
           disabled={(isFormDirty && !isFormValid) || isFeedbackSent}
-          type="submit">Send</button
+          type="submit">Send</Button
         >
         {#if isFormDirty && !isFormValid}
           <legend class="text-xs text-error block mt-1 mb-2">
