@@ -10,7 +10,9 @@
 
   onMount(() => {
     // If you change the cookie, please also change it in src/hook.ts
-    document.cookie = "gitpod-marketing-website-visited=true;domain=gitpod.io";
+    document.cookie = `gitpod-marketing-website-visited=true; Domain=.gitpod.io; Path=/; max-age=${
+      365 * 24 * 60 * 60
+    }`;
   });
 
   $: if ($page.url.pathname) {
