@@ -9,6 +9,7 @@
   import CookieConsent from "$lib/components/banners/cookie-consent.svelte";
 
   onMount(() => {
+    // If you change the cookie, please also change it in src/hook.ts
     document.cookie = "gitpod-marketing-website-visited=true;domain=gitpod.io";
   });
 
