@@ -190,6 +190,7 @@
       }
       return;
     }
+
     // Invoked flag, to make sure the snippet
     // is never invoked twice.
     analytics.invoked = true;
@@ -258,6 +259,12 @@
       // Load Analytics.js with your key, which will automatically
       // load the tools you've enabled for your account. Boosh!
       analytics.load(writeKey);
+
+      //set cookie that website was visited
+      Cookies.set("site-visitor", "true", {
+        domain: ".gitpod.io",
+        expires: 365,
+      });
     }
 
     // Track first page
