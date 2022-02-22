@@ -17,6 +17,7 @@
   import SectionCommon from "$lib/components/section-common.svelte";
   import FeatureBox from "$lib/components/feature-box.svelte";
   import Header from "$lib/components/header.svelte";
+  import LinkButton from "$lib/components/ui-library/link-button";
   import Quotes from "$lib/components/quotes.svelte";
   import { quotes } from "$lib/contents/customers";
 </script>
@@ -31,7 +32,8 @@
   data={{
     title: "Gitpod for Startups",
     description:
-      "With Gitpod for Startups you'll improve your developer experience, morale and productivity and focus more on what really counts: being creative and writing code to build great products.",
+      "Apply for our startup program and get Gitpod for free for up to 2 years with unlimited users and usage. ",
+    keywords: "startup, free",
   }}
 />
 
@@ -48,10 +50,11 @@
     >
       Use all our services for free, up to 2 years.
     </p>
-    <a
+    <LinkButton
+      variant="primary"
+      size="large"
       href="https://docs.google.com/forms/d/e/1FAIpQLSc-Vaelz0yG-XkuN2CYyUtZz0khhwMaju4oSLdMNIzoMkpHug/viewform"
-      target="_blank"
-      class="btn-conversion">Apply now</a
+      target="_blank">Apply now</LinkButton
     >
     <Quotes class="mt-small" {quotes} />
   </div>
